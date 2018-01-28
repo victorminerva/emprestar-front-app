@@ -1,0 +1,17 @@
+<div *ngIf="!(authService.user | async)">
+    <button (click)="loginWithGoogle()">
+    Cadastre-se com Google
+  </button>
+</div>
+
+<div *ngIf="!(authService.user | async)">
+    <button (click)="loginWithFacebook()">
+    Cadastre-se com Facebook
+  </button>
+</div>
+
+<h1 *ngIf="authService.user | async">Welcome {{ (authService.user | async)?.displayName }}!</h1>
+
+<button (click)="logout()" *ngIf="authService.user | async">
+  Logout
+</button>
