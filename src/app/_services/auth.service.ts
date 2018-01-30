@@ -36,14 +36,9 @@ export class AuthService {
             .signInWithPopup(facebookProvider);
   }
 
-  logout() {
-    this.firebaseAuth
-      .auth
-      .signOut().then(() => {
-        this.router.navigate(['/login']);
-      })
-      .catch(err => {
-        console.log('[logout] - Something went wrong:', err.message);
-      });
+  logout(): any {
+    return this.firebaseAuth
+            .auth
+            .signOut();
   }
 }
