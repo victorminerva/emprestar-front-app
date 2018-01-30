@@ -1,0 +1,10 @@
+<div *ngIf="!(authService.user | async)">
+    Você não está logado!
+</div>
+<div *ngIf="(authService.user | async)">
+    <h1>Welcome {{ (authService.user | async)?.displayName }}!</h1>
+
+    <button (click)="logout()">
+  Logout
+</button>
+</div>

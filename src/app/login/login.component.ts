@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
+import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,20 +10,34 @@ import { AuthService } from '../_services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
 
   loginWithGoogle() {
-    this.authService.loginWithGoogle();
+    this.authService.loginWithGoogle()
+      .then(result => {
+        this.afterLogin();
+        console.log('[loginWithGoogle] - Success');
+      })
+      .catch(err => {
+        console.log('[loginWithGoogle] - Something went wrong:', err.message);
+      });
   }
 
   loginWithFacebook() {
-    this.authService.loginWithFacebook();
+    this.authService.loginWithFacebook()
+      .then(result => {
+        this.afterLogin();
+        console.log('[loginWithFacebook] - Success');
+      })
+      .catch(err => {
+        console.log('[loginWithFacebook] - Something went wrong:', err.message);
+      });
   }
 
-  logout() {
-    this.authService.logout();
+  afterLogin() {
+    this.router.navigate(['/home']);
   }
 }

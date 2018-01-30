@@ -3,49 +3,44 @@ import { Observable } from 'rxjs/Observable';
 import { AngularFireAuth } from 'angularfire2/auth';
 
 import * as firebase from 'firebase/app';
+import { Router } from '@angular/router';
+import { User } from '@firebase/auth-types';
+import { NavigationEnd } from '@angular/router';
+
+import 'rxjs/add/operator/filter';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class AuthService {
   user: Observable<firebase.User>;
 
-  constructor(private firebaseAuth: AngularFireAuth) {
+  constructor(private firebaseAuth: AngularFireAuth, private router: Router) {
     this.user = firebaseAuth.authState;
   }
 
-  loginWithGoogle() {
-    const googleProvider = new firebase.auth.GoogleAuthProvider();
-    this.firebaseAuth
-      .auth
-      .signInWithPopup(googleProvider)
-      .then(result => {
-        console.log('User: ', JSON.stringify(result.user));
-      })
-      .catch(err => {
-        console.log('[loginWithGoogle] - Something went wrong:', err.message);
-      });
+  isLoggedIn() {
+    return this.user !== undefined;
   }
 
-  loginWithFacebook() {
-    const facebookProvider = new firebase.auth.FacebookAuthProvider();
+  loginWithGoogle(): any {
+    const googleProvider = new firebase.auth.GoogleAuthProvider();
+    return this.firebaseAuth
+            .auth
+            .signInWithPopup(googleProvider);
+  }
 
-    this.firebaseAuth
-      .auth
-      .signInWithPopup(facebookProvider)
-      .then(result => {
-        console.log('User: ', JSON.stringify(result.user));
-        console.log('Provider Data: ', JSON.stringify(result.user.providerData));
-      })
-      .catch(err => {
-        console.log('[loginWithFacebook] - Something went wrong:', err.message);
-      });
+  loginWithFacebook(): any {
+    const facebookProvider = new firebase.auth.FacebookAuthProvider();
+    return this.firebaseAuth
+            .auth
+            .signInWithPopup(facebookProvider);
   }
 
   logout() {
     this.firebaseAuth
       .auth
       .signOut().then(() => {
-        console.log('Signed Out');
-        console.log('User', this.firebaseAuth.auth.currentUser);
+        this.router.navigate(['/login']);
       })
       .catch(err => {
         console.log('[logout] - Something went wrong:', err.message);

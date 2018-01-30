@@ -7,19 +7,26 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './_services/auth.service';
+import { HomeComponent } from './home/home.component';
+import { RouterModule } from '@angular/router';
+import { ROUTES } from './app.routes';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    RouterModule.forRoot(ROUTES)
   ],
-  providers: [AuthService],
+  providers: [AuthService
+              ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
