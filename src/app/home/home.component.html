@@ -2,9 +2,7 @@
     Você não está logado!
 </div>
 <div *ngIf="(authService.user | async)">
-    <h1>Welcome {{ (authService.user | async)?.displayName }}!</h1>
+    <h1>Bem vindo {{ (authService.user | async)?.displayName }}!</h1>
 
-    <button (click)="logout()">
-  Logout
-</button>
+    <button (click)="logout()">Logout</button>
 </div>

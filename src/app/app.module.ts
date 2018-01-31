@@ -11,13 +11,17 @@ import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoansComponent } from './home/loans/loans.component';
+import { BorrowedComponent } from './home/borrowed/borrowed.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    LoansComponent,
+    BorrowedComponent
   ],
   imports: [
     BrowserModule,
