@@ -13,6 +13,7 @@ import { ROUTES } from './app.routes';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoansComponent } from './home/loans/loans.component';
 import { BorrowedComponent } from './home/borrowed/borrowed.component';
+import { LoanCardComponent } from './home/loans/loan-card/loan-card.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { BorrowedComponent } from './home/borrowed/borrowed.component';
     LoginComponent,
     HomeComponent,
     LoansComponent,
-    BorrowedComponent
+    BorrowedComponent,
+    LoanCardComponent
   ],
   imports: [
     BrowserModule,
