@@ -1,4 +1,6 @@
 <p>
     loans works!
 </p>
-<app-loan-card></app-loan-card>
+<div *ngFor="let loan of loans">
+    <app-loan-card [loan]="loan"></app-loan-card>
+</div>

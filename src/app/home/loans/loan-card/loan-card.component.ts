@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Loan } from '../../../_models/loan.model';
+import { Input } from '@angular/core';
 
 @Component({
   selector: 'app-loan-card',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./loan-card.component.css']
 })
 export class LoanCardComponent implements OnInit {
+
+  @Input() loan: Loan;
 
   constructor() { }
 

@@ -14,6 +14,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoansComponent } from './home/loans/loans.component';
 import { BorrowedComponent } from './home/borrowed/borrowed.component';
 import { LoanCardComponent } from './home/loans/loan-card/loan-card.component';
+import { LoansService } from './_services/loans.service';
 
 
 @NgModule({
@@ -31,8 +32,8 @@ import { LoanCardComponent } from './home/loans/loan-card/loan-card.component';
     AngularFireAuthModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [AuthService
-              ],
+  providers: [AuthService,
+              LoansService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
