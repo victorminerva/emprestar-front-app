@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   loginWithGoogle() {
     this.authService.loginWithGoogle()
       .then(result => {
-        this.afterLogin();
+        this.onLoginSuccess();
         console.log('[loginWithGoogle] - Success');
       })
       .catch(err => {
@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
   loginWithFacebook() {
     this.authService.loginWithFacebook()
       .then(result => {
-        this.afterLogin();
+        this.onLoginSuccess();
         console.log('[loginWithFacebook] - Success');
       })
       .catch(err => {
@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
       });
   }
 
-  afterLogin() {
+  onLoginSuccess() {
     this.router.navigate(['/home']);
   }
 }

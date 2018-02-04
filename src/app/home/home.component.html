@@ -2,17 +2,15 @@
     Você não está logado!
 </div>
 <div *ngIf="(authService.user | async)">
-    <h1>Bem vindo {{ (authService.user | async)?.displayName }}!</h1>
-
     <button (click)="logout()">Logout</button>
-
+    
     <div class="row">
         <div class="column card">
-            <app-loans></app-loans>
+            <app-loans title="Emprestimos"></app-loans>
         </div>
         <div class="column card">
-                <app-loans></app-loans>
-            </div>
+            <app-loans title="Recentes"></app-loans>
+        </div>
         <div class="column card">
             <app-borrowed></app-borrowed>
         </div>
