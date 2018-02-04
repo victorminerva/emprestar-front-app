@@ -15,7 +15,7 @@ import { LoansComponent } from './home/loans/loans.component';
 import { BorrowedComponent } from './home/borrowed/borrowed.component';
 import { LoanCardComponent } from './home/loans/loan-card/loan-card.component';
 import { LoansService } from './_services/loans.service';
-
+import { AngularFireDatabase, AngularFireDatabaseModule } from 'angularfire2/database';
 
 @NgModule({
   declarations: [
@@ -29,10 +29,11 @@ import { LoansService } from './_services/loans.service';
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
     AngularFireAuthModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [AuthService,
+  providers: [AngularFireDatabase, AuthService,
               LoansService],
   bootstrap: [AppComponent]
 })
