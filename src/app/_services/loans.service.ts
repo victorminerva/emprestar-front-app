@@ -10,17 +10,21 @@ import { User } from 'firebase/app';
 @Injectable()
 export class LoansService {
 
-    authState: Observable<firebase.User>;
-    uidUser: string;
+    userUID: string;
+    recents: Observable<Loan[]>;
 
-    constructor(private db: AngularFireDatabase, private firebaseAuth: AngularFireAuth) {
-        this.authState = firebaseAuth.authState;
+    constructor(private database: AngularFireDatabase, private firebaseAuth: AngularFireAuth) {
+        this.userUID = firebaseAuth.auth.currentUser.uid;
+        console.log(this.userUID);
     }
 
-    retrieveAllLoans() {
-        this.authState.subscribe(auth => {
-            this.uidUser = auth.uid;
-        });
-        return this.db.list<Loan>('/loans').valueChanges();
+    retrieveAllUserLoans(): Observable<Loan[]> {
+        return this.database.list<Loan>(`/user-loans/${this.userUID}`).valueChanges();
+    }
+
+    retrieveRecentsLoans(): Observable<Loan[]> {
+        return this.database.list<Loan>(`/user-loans/${this.userUID}`).valueChanges()
+                .map(items => items.sort((a, b) => b.dateInclusion - a.dateInclusion)) as Observable<Loan[]>;
+
     }
 }

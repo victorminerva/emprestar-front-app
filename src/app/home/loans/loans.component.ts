@@ -13,11 +13,11 @@ import { Input } from '@angular/core';
 export class LoansComponent implements OnInit {
 
   @Input() title: string;
-  loans: Observable<Loan[]>;
+  userLoans: Observable<Loan[]>;
 
   constructor(private loansService: LoansService) {}
 
   ngOnInit() {
-   this.loans = this.loansService.retrieveAllLoans();
+   this.userLoans = this.loansService.retrieveAllUserLoans();
   }
 }
