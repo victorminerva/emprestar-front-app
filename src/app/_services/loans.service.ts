@@ -23,8 +23,7 @@ export class LoansService {
     }
 
     retrieveRecentsLoans(): Observable<Loan[]> {
-        return this.database.list<Loan>(`/user-loans/${this.userUID}`).valueChanges()
-                .map(items => items.sort((a, b) => b.dateInclusion - a.dateInclusion)) as Observable<Loan[]>;
+        return this.database.list<Loan>(`/user-loans/${this.userUID}`).valueChanges();
 
     }
 }

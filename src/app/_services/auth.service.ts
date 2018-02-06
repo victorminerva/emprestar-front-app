@@ -6,6 +6,7 @@ import * as firebase from 'firebase/app';
 import { Router } from '@angular/router';
 import { User } from '@firebase/auth-types';
 import { NavigationEnd } from '@angular/router';
+import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
 
 import 'rxjs/add/operator/filter';
 import { HttpClient } from '@angular/common/http';

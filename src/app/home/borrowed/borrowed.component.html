@@ -1,3 +1,6 @@
 <p>
-  borrowed works!
+  Recebidos
 </p>
+<div *ngFor="let borrowed of userBorrowed | async">
+  <app-loan-card [loan]="borrowed"></app-loan-card>
+</div>

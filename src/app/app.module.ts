@@ -16,6 +16,7 @@ import { BorrowedComponent } from './home/borrowed/borrowed.component';
 import { LoanCardComponent } from './home/loans/loan-card/loan-card.component';
 import { LoansService } from './_services/loans.service';
 import { AngularFireDatabase, AngularFireDatabaseModule } from 'angularfire2/database';
+import { BorrowedService } from './_services/borrowed.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { AngularFireDatabase, AngularFireDatabaseModule } from 'angularfire2/dat
     RouterModule.forRoot(ROUTES)
   ],
   providers: [AngularFireDatabase, AuthService,
-              LoansService],
+              LoansService, BorrowedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
