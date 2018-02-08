@@ -8,4 +8,5 @@ export class Loan {
     returned?: boolean;
     dateInclusion?: any;
     favorite?: boolean;
+    favored?: Favored;
 }
