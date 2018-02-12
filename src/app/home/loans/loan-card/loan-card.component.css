@@ -1,16 +1,25 @@
 .col-container {
-    display: table; /* Make the container element behave like a table */
-    width: 100%; /* Set full-width to expand the whole page */
+  display: table; /* Make the container element behave like a table */
+  width: 100%; /* Set full-width to expand the whole page */
 }
 
 .col {
-    display: table-cell; /* Make elements inside the container behave like table cells */
+  display: table-cell; /* Make elements inside the container behave like table cells */
 }
 
 button {
-    display: block;
-    width: 100%;
-    background: transparent;
-    padding: 5%;
-    border: 0;
+  display: block;
+  width: 100%;
+  background: transparent;
+  padding: 5%;
+  border: 0;
+}
+
+div.ext-box {
+  display: table;
+  width: 100%;
+}
+div.int-box {
+  display: table-cell;
+  vertical-align: middle;
 }
