@@ -17,10 +17,18 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <script>
-        /* When the user clicks on the button, 
+        /* When the user clicks on the search button from header, 
+        toggle between hiding and showing the input content */
+        /* When the user clicks on the more_vert button from header, 
         toggle between hiding and showing the dropdown content */
-        function myFunction() {
-            document.getElementById("myDropdown").classList.toggle("show");
+        function openDropdown() {
+            document.getElementById("search-icon").classList.toggle("show");
+        }
+
+        /* When the user clicks on the more_vert button from header, 
+        toggle between hiding and showing the dropdown content */
+        function openDropdown() {
+            document.getElementById("more-vert-icon").classList.toggle("show");
         }
 
         // Close the dropdown if the user clicks outside of it

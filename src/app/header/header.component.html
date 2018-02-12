@@ -2,14 +2,21 @@
   <span class="title-app">emprestei</span>
 
   <div class="dropdown">
-    <button class="material-icons md-36 dropbtn" onclick="myFunction()">more_vert</button>
-    <div id="myDropdown" class="dropdown-content" >
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+    <button class="material-icons md-36 dropbtn" onclick="openDropdown()">more_vert</button>
+    <div id="more-vert-icon" class="dropdown-content">
+      <a href="#sobre">Sobre</a>
+      <a (click)="logout()">Sair</a>
     </div>
   </div>
   <div>
-    <i class="material-icons md-36">search</i>
+    <button id="search-icon" class="material-icons md-36">search</button>
+  </div>
+
+  <div id="search-input">
+    <span class="icon">
+      <i class="material-icons md-24" style="color: silver; vertical-align: middle;">search</i>
+      <input type="search" id="search-input" placeholder="Pesquisar empréstimos..." style="color: silver" />
+      <i class="material-icons md-24" style="color: silver; vertical-align: middle; cursor: pointer;">clear</i>
+    </span>
   </div>
 </nav>

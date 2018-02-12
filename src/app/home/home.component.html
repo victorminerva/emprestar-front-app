@@ -3,8 +3,6 @@
 </div>
 <div *ngIf="(authService.user | async)">
     <app-header></app-header>
-    
-    <button (click)="logout()">Logout</button>
 
     <div class="row">
         <div class="column card">
@@ -16,5 +14,9 @@
         <div class="column card">
             <app-borrowed></app-borrowed>
         </div>
+    </div>
+
+    <div align="bottom">
+        <a class="float"><i class="material-icons my-float">add</i></a>
     </div>
 </div>

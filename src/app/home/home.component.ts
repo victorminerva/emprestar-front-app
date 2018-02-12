@@ -15,14 +15,4 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  logout() {
-    this.authService.logout()
-      .then(() => {
-        this.router.navigate(['/login']);
-        console.log('[logout] - Sign Out!');
-      })
-      .catch(err => {
-        console.log('[logout] - Something went wrong:', err.message);
-      });
-  }
 }
