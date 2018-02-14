@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Loan } from '../../../_models/loan.model';
 import { Input } from '@angular/core';
 
@@ -16,4 +16,8 @@ export class LoanCardComponent implements OnInit {
   ngOnInit() {
   }
 
+  loanIsDelayed(): boolean {
+    const currentDate = new Date();
+    return this.loan.untilWhen < currentDate.getTime;
+  }
 }

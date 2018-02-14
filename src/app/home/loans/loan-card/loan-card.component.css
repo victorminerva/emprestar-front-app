@@ -23,3 +23,14 @@ div.int-box {
   display: table-cell;
   vertical-align: middle;
 }
+
+#loan-detail {
+  background-color: silver;
+  padding: 15px 15px 20px 15px;
+  overflow: hidden;
+  transition: height 0.5s;
+}
+
+.loan-info-detail {
+  margin: 0px 0px 0px 10px;
+}

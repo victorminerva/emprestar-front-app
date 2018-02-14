@@ -1,12 +1,12 @@
 import { Favored } from './favored.model';
 
 export class Loan {
-    uid?: string;
+    uid: string;
     what: string;
     whatDescription: string;
-    untilWhen?: any;
-    returned?: boolean;
-    dateInclusion?: any;
+    untilWhen: any;
+    returned: boolean;
+    dateInclusion: any;
     favorite?: boolean;
-    favored?: Favored;
+    favored: Favored;
 }

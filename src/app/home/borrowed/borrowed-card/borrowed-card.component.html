@@ -10,17 +10,17 @@
         <p>{{loan.whatDescription}}</p>
       </div>
 
-      <div class="col" align="right">
+      <div id="eyeId" class="col" align="right" data-toggle="collapse" data-target="#borrowed-detail">
         <i class="material-icons">remove_red_eye</i>
       </div>
     </div>
   </div>
   <!-- -->
-  <div id="borrowed-detail">
+  <div id="borrowed-detail" class="collapse">
     <div>
       Informações
     </div>
-    <div class="borrowed-detail">
+    <div class="borrowed-info-detail">
       <p>
         <i class="material-icons" style="font-size:14px; color: #0C9;">&#xe834;</i>
         Categoria: {{ loan.what }}
@@ -64,6 +64,4 @@
       <i class="material-icons" style="color:silver;">&#xe5ca;</i>
     </div>
   </div>
-
-
 </div>
