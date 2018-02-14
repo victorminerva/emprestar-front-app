@@ -10,13 +10,14 @@
         <p>{{loan.whatDescription}}</p>
       </div>
 
-      <div id="eyeId" class="col" align="right" data-toggle="collapse" data-target="#borrowed-detail">
-        <i class="material-icons">remove_red_eye</i>
+      <div id="eyeId" class="col" align="right" (click)="showOrHideInfoDetail()">
+        <i class="material-icons" *ngIf="!infoDetailHidden">&#xe417;</i>
+        <i class="material-icons" *ngIf="infoDetailHidden">&#xe8f5;</i>
       </div>
     </div>
   </div>
-  <!-- -->
-  <div id="borrowed-detail" class="collapse">
+  <!-- INFO DETAIL -->
+  <div id="borrowed-detail" *ngIf="infoDetailHidden">
     <div>
       Informações
     </div>
@@ -35,7 +36,7 @@
       </p>
     </div>
   </div>
-  <!-- -->
+  <!-- INFO DETAIL -->
   <div class="col-container" *ngIf="loanIsDelayed()" style="background-color: red;">
     <div id="text-borrowed">
       ATRASADO
@@ -56,12 +57,12 @@
   </div>
 
   <div class="col-container" *ngIf="!loan.returned && !loanIsDelayed()">
-    <div id="text-borrowed">
-      DEVOLVIDO
+    <div style="color: gray; text-align: center; font-weight: bold;">
+      PENDENTE
     </div>
 
-    <div class="col" align="right">
-      <i class="material-icons" style="color:silver;">&#xe5ca;</i>
+    <div class="col" align="right" >
+      <i class="fa fa-hourglass-half" style="color: gray; margin: 10px"></i>
     </div>
   </div>
 </div>

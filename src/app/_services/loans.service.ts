@@ -15,7 +15,6 @@ export class LoansService {
 
     constructor(private database: AngularFireDatabase, private firebaseAuth: AngularFireAuth) {
         this.userUID = firebaseAuth.auth.currentUser.uid;
-        console.log(this.userUID);
     }
 
     retrieveAllUserLoans(): Observable<Loan[]> {

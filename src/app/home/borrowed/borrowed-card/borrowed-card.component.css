@@ -34,7 +34,7 @@ div.int-box {
   background-color: silver;
   padding: 15px 15px 20px 15px;
   overflow: hidden;
-  transition: height 0.5s;
+  transition: height 0.10s;
 }
 
 .borrowed-returned {

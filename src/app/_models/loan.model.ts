@@ -4,9 +4,9 @@ export class Loan {
     uid: string;
     what: string;
     whatDescription: string;
-    untilWhen: any;
+    untilWhen: Date;
     returned: boolean;
-    dateInclusion: any;
+    dateInclusion: Date;
     favorite?: boolean;
     favored: Favored;
 }

@@ -10,6 +10,7 @@ import { Input } from '@angular/core';
 export class BorrowedCardComponent implements OnInit {
 
   @Input() loan: Loan;
+  infoDetailHidden = true;
 
   constructor() { }
 
@@ -18,7 +19,17 @@ export class BorrowedCardComponent implements OnInit {
 
   loanIsDelayed(): boolean {
     const currentDate = new Date();
-    return this.loan.untilWhen < currentDate.getTime;
+    const date = new Date(this.loan.untilWhen['time']);
+    return date.getTime() < currentDate.getTime();
   }
 
+  showOrHideInfoDetail() {
+    if (this.infoDetailHidden) {
+      console.log('false');
+      this.infoDetailHidden = false;
+    } else {
+      console.log('true');
+      this.infoDetailHidden = true;
+    }
+  }
 }

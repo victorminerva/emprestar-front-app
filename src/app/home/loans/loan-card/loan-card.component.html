@@ -7,7 +7,7 @@
             </div>
 
             <div class="col">
-                <b>{{loan.favored.name}}</b>
+                <p>{{loan.favored.name}}</p>
                 <p>{{loan.what}}</p>
             </div>
 
@@ -15,13 +15,14 @@
                 <i class="material-icons" style="color:red;">announcement</i>
             </div>
 
-            <div id="eyeId" class="col" align="right" data-toggle="collapse" data-target="#loan-detail">
-                <i class="material-icons">remove_red_eye</i>
+            <div id="eyeId" class="col" align="right" (click)="showOrHideInfoDetail()">
+                <i class="material-icons" *ngIf="!infoDetailHidden">&#xe417;</i>
+                <i class="material-icons" *ngIf="infoDetailHidden">&#xe8f5;</i>
             </div>
         </div>
     </div>
-    <!-- -->
-    <div id="loan-detail" class="collapse">
+    <!-- INFO DETAIL -->
+    <div id="loan-detail"  *ngIf="infoDetailHidden">
         <div class="col-container">
             <div class="col">Informações</div>
             <div class="col" align="right" style="color: red;" *ngIf="loanIsDelayed()">(Atrasado)</div>
@@ -37,17 +38,17 @@
             </p>
         </div>
     </div>
-    <!-- -->
+    <!-- INFO DETAIL -->
     <div class="col-container">
         <div class="col">
             <button style="text-align: left">
-                <img src="https://cdn.onlinewebfonts.com/svg/img_369247.png" height="18px" width="18px" style="float:left;margin-right:0.5em">PRORROGAR
+                <i class="fa fa-calendar" style="float:left;margin-right:0.5em"></i>
+                <b>PRORROGAR</b>
             </button>
         </div>
         <div class="col">
-            <button style="text-align: right">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Feedbin-Icon-check.svg/2000px-Feedbin-Icon-check.svg.png"
-                    height="18px" width="24px" style="float:right;margin-left:0.5em">DEVOLVIDO
+            <button style="text-align: right; color: grey">
+                <i class="fa fa-check" style="float:right;margin-left:0.5em; color: grey"></i> DEVOLVIDO
             </button>
         </div>
     </div>
