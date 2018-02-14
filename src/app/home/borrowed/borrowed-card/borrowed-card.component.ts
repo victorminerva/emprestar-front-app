@@ -10,7 +10,7 @@ import { Input } from '@angular/core';
 export class BorrowedCardComponent implements OnInit {
 
   @Input() loan: Loan;
-  infoDetailShowed = false;
+  infoDetailHidden = true;
 
   constructor() { }
 
@@ -24,10 +24,10 @@ export class BorrowedCardComponent implements OnInit {
   }
 
   showOrHideInfoDetail() {
-    if (this.infoDetailShowed) {
-      this.infoDetailShowed = false;
+    if (this.infoDetailHidden) {
+      this.infoDetailHidden = false;
     } else {
-      this.infoDetailShowed = true;
+      this.infoDetailHidden = true;
     }
   }
 }

@@ -11,13 +11,13 @@
       </div>
 
       <div id="eyeId" class="col" align="right" (click)="showOrHideInfoDetail()">
-        <i class="material-icons" *ngIf="!infoDetailHidden">&#xe417;</i>
-        <i class="material-icons" *ngIf="infoDetailHidden">&#xe8f5;</i>
+        <i class="material-icons" *ngIf="infoDetailHidden">&#xe417;</i>
+        <i class="material-icons" *ngIf="!infoDetailHidden">&#xe8f5;</i>
       </div>
     </div>
   </div>
   <!-- INFO DETAIL -->
-  <div id="borrowed-detail" *ngIf="infoDetailHidden">
+  <div id="borrowed-detail" *ngIf="!infoDetailHidden">
     <div>
       Informações
     </div>

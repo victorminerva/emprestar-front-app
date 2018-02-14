@@ -10,11 +10,12 @@ import { Input } from '@angular/core';
 export class LoanCardComponent implements OnInit {
 
   @Input() loan: Loan;
-  infoDetailShowed = false;
+  infoDetailHidden: boolean;
 
   constructor() { }
 
   ngOnInit() {
+    this.infoDetailHidden = true;
   }
 
   loanIsDelayed(): boolean {
@@ -24,10 +25,10 @@ export class LoanCardComponent implements OnInit {
   }
 
   showOrHideInfoDetail() {
-    if (this.infoDetailShowed) {
-      this.infoDetailShowed = false;
+    if (this.infoDetailHidden) {
+      this.infoDetailHidden = false;
     } else {
-      this.infoDetailShowed = true;
+      this.infoDetailHidden = true;
     }
   }
 

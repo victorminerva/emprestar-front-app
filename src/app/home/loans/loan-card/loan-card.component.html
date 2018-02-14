@@ -16,13 +16,13 @@
             </div>
 
             <div id="eyeId" class="col" align="right" (click)="showOrHideInfoDetail()">
-                <i class="material-icons" *ngIf="!infoDetailHidden">&#xe417;</i>
-                <i class="material-icons" *ngIf="infoDetailHidden">&#xe8f5;</i>
+                <i class="material-icons" *ngIf="infoDetailHidden">&#xe417;</i>
+                <i class="material-icons" *ngIf="!infoDetailHidden">&#xe8f5;</i>
             </div>
         </div>
     </div>
     <!-- INFO DETAIL -->
-    <div id="loan-detail"  *ngIf="infoDetailHidden">
+    <div id="loan-detail"  *ngIf="!infoDetailHidden">
         <div class="col-container">
             <div class="col">Informações</div>
             <div class="col" align="right" style="color: red;" *ngIf="loanIsDelayed()">(Atrasado)</div>
