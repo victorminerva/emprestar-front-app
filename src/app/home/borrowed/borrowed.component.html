@@ -2,5 +2,5 @@
   Recebidos
 </p>
 <div *ngFor="let borrowed of userBorrowed | async">
-  <app-loan-card [loan]="borrowed"></app-loan-card>
+  <app-borrowed-card [loan]="borrowed"></app-borrowed-card>
 </div>

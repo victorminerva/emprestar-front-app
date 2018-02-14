@@ -18,6 +18,7 @@ import { LoansService } from './_services/loans.service';
 import { AngularFireDatabase, AngularFireDatabaseModule } from 'angularfire2/database';
 import { BorrowedService } from './_services/borrowed.service';
 import { HeaderComponent } from './header/header.component';
+import { BorrowedCardComponent } from './home/borrowed/borrowed-card/borrowed-card.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HeaderComponent } from './header/header.component';
     LoansComponent,
     BorrowedComponent,
     LoanCardComponent,
-    HeaderComponent
+    HeaderComponent,
+    BorrowedCardComponent
   ],
   imports: [
     BrowserModule,
