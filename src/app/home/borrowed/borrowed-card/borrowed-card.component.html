@@ -37,17 +37,18 @@
     </div>
   </div>
   <!-- INFO DETAIL -->
+  <!-- LOAN IS DELAYED? -->
   <div class="col-container" *ngIf="loanIsDelayed()" style="background-color: red;">
-    <div id="text-borrowed">
+    <div id="text-borrowed" style="display: table-cell; vertical-align: middle;">
       ATRASADO
     </div>
 
     <div class="col" align="right">
-      <i class="material-icons" style="color:white;">announcement</i>
+      <i class="material-icons" style="color:white; margin: 5px 10px 0px 5px">announcement</i>
     </div>
   </div>
   <div class="col-container" *ngIf="loan.returned" style="background-color: green;">
-    <div id="text-borrowed">
+    <div id="text-borrowed" style="display: table-cell; vertical-align: middle;">
       DEVOLVIDO
     </div>
 
