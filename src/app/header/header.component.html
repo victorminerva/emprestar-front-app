@@ -1,22 +1,22 @@
 <nav>
-  <span class="title-app">emprestei</span>
+    <span class="title-app">emprestei</span>
 
-  <div class="dropdown">
-    <button class="material-icons md-36 dropbtn" onclick="openDropdown()">more_vert</button>
-    <div id="more-vert-icon" class="dropdown-content">
-      <a href="#sobre">Sobre</a>
-      <a (click)="logout()">Sair</a>
+    <div class="dropdown">
+        <button class="material-icons md-36 dropbtn" onclick="openDropdown()">more_vert</button>
+        <div id="more-vert-icon" class="dropdown-content">
+            <a href="#sobre">Sobre</a>
+            <a (click)="logout()">Sair</a>
+        </div>
     </div>
-  </div>
-  <div>
-    <button id="search-icon" class="material-icons md-36">search</button>
-  </div>
+    <div *ngIf="!showInputSearch" (click)="showOrHideInputSearch()">
+        <button id="search-icon" class="material-icons md-36">search</button>
+    </div>
 
-  <div id="search-input">
-    <span class="icon">
-      <i class="material-icons md-24" style="color: silver; vertical-align: middle;">search</i>
-      <input type="search" id="search-input" placeholder="Pesquisar empréstimos..." style="color: silver" />
-      <i class="material-icons md-24" style="color: silver; vertical-align: middle; cursor: pointer;">clear</i>
-    </span>
-  </div>
+    <div id="search-input" *ngIf="showInputSearch">
+        <span class="icon">
+        <i class="material-icons md-24" style="color: silver; vertical-align: middle;">search</i>
+        <input type="search" id="search-input" placeholder="Pesquisar empréstimos..." style="color: silver" />
+        <i class="material-icons md-24" style="color: silver; vertical-align: middle; cursor: pointer;" (click)="showOrHideInputSearch()">clear</i>
+      </span>
+    </div>
 </nav>

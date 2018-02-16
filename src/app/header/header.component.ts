@@ -10,8 +10,10 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   constructor(private authService: AuthService, private router: Router) { }
+  showInputSearch: boolean;
 
   ngOnInit() {
+    this.showInputSearch = false;
   }
 
   logout() {
@@ -23,5 +25,13 @@ export class HeaderComponent implements OnInit {
       .catch(err => {
         console.log('[logout] - Something went wrong:', err.message);
       });
+  }
+
+  showOrHideInputSearch() {
+    if (!this.showInputSearch) {
+      this.showInputSearch = true;
+    } else {
+      this.showInputSearch = false;
+    }
   }
 }
