@@ -122,3 +122,7 @@ input {
   -o-transition-property: height, visibility;
   transition-property: height, visibility;
 }
+
+.title {
+  font-size: 18px;
+}
