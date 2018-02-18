@@ -11,6 +11,7 @@ import { User } from 'firebase/app';
 export class LoansService {
 
     userUID: string;
+    loans: any;
     recents: Observable<Loan[]>;
 
     constructor(private database: AngularFireDatabase, private firebaseAuth: AngularFireAuth) {
@@ -18,11 +19,28 @@ export class LoansService {
     }
 
     retrieveAllUserLoans(): Observable<Loan[]> {
-        return this.database.list<Loan>(`/user-loans/${this.userUID}`).valueChanges();
+        this.loans = this.database.list<Loan>(`/user-loans/${this.userUID}`);
+        return this.database.list<Loan>(`/user-loans/${this.userUID}`).snapshotChanges().map(loans => {
+            return loans.map(loan => {
+                const data = loan.payload.val();
+                data.uid = loan.key;
+                return { ...data };
+            });
+          });
     }
 
     retrieveRecentsLoans(): Observable<Loan[]> {
-        return this.database.list<Loan>(`/user-loans/${this.userUID}`).valueChanges();
+        return this.database.list<Loan>(`/user-loans/${this.userUID}`).snapshotChanges().map(loans => {
+            return loans.map(a => {
+                const data = a.payload.val();
+                data.uid = a.key;
+                return { ...data };
+            });
+          });
+    }
 
+    markedAsReturned(loan: Loan) {
+        this.loans.update(loan.uid, { returned: true });
+        console.log('Returned');
     }
 }

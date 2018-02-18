@@ -22,7 +22,7 @@
         </div>
     </div>
     <!-- INFO DETAIL -->
-    <div id="loan-detail"  *ngIf="!infoDetailHidden">
+    <div id="loan-detail" *ngIf="!infoDetailHidden">
         <div class="col-container">
             <div class="col">Informações</div>
             <div class="col" align="right" style="color: red;" *ngIf="loanIsDelayed()">(Atrasado)</div>
@@ -41,15 +41,41 @@
     <!-- INFO DETAIL -->
     <div class="col-container">
         <div class="col">
-            <button style="text-align: left">
+            <button *ngIf="!loan.returned" style="text-align: left">
+                <i class="fa fa-calendar" style="float:left;margin-right:0.5em"></i>
+                <b>PRORROGAR</b>
+            </button>
+            <button disabled *ngIf="loan.returned" style="text-align: left">
                 <i class="fa fa-calendar" style="float:left;margin-right:0.5em"></i>
                 <b>PRORROGAR</b>
             </button>
         </div>
-        <div class="col">
-            <button style="text-align: right; color: grey">
+        <div class="col" *ngIf="!loan.returned">
+            <button style="text-align: right; color: grey" (click)="showConfirmReturned()">
                 <i class="fa fa-check" style="float:right;margin-left:0.5em; color: grey"></i> DEVOLVIDO
             </button>
         </div>
+        <div class="col" *ngIf="loan.returned">
+            <button disabled style="text-align: right; color: #01926e" (click)="showConfirmReturned()">
+                <i class="fa fa-check" style="float:right;margin-left:0.5em; color: #01926e"></i> DEVOLVIDO
+            </button>
+        </div>
+    </div>
+</div>
+<div class="dialog-ovelay" *ngIf="!confirmReturnedDialogHidden">
+    <div class="dialog">
+        <header>
+            <h3> Devolvido? </h3>
+            <i class="fa fa-close" (click)="showConfirmReturned()"></i>
+        </header>
+        <div class="dialog-msg">
+            <p> Deseja marcar este empréstimo como devolvido? </p>
+        </div>
+        <footer>
+            <div class="controls">
+                <input type="button" id="button-confirm" (click)="markedAsReturned()" value="SIM">
+                <input type="button" id="button-default" (click)="showConfirmReturned()" value="NÃO">
+            </div>
+        </footer>
     </div>
 </div>

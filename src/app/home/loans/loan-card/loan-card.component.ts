@@ -1,6 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { Loan } from '../../../_models/loan.model';
 import { Input } from '@angular/core';
+import { LoansService } from '../../../_services/loans.service';
 
 @Component({
   selector: 'app-loan-card',
@@ -11,11 +12,13 @@ export class LoanCardComponent implements OnInit {
 
   @Input() loan: Loan;
   infoDetailHidden: boolean;
+  confirmReturnedDialogHidden: boolean;
 
-  constructor() { }
+  constructor(private loansService: LoansService) { }
 
   ngOnInit() {
     this.infoDetailHidden = true;
+    this.confirmReturnedDialogHidden = true;
   }
 
   loanIsDelayed(): boolean {
@@ -32,4 +35,16 @@ export class LoanCardComponent implements OnInit {
     }
   }
 
+  showConfirmReturned() {
+    if (this.confirmReturnedDialogHidden) {
+      this.confirmReturnedDialogHidden = false;
+    } else {
+      this.confirmReturnedDialogHidden = true;
+    }
+  }
+
+  markedAsReturned() {
+    this.loansService.markedAsReturned(this.loan);
+    this.confirmReturnedDialogHidden = true;
+  }
 }
