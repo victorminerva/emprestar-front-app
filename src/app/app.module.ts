@@ -19,6 +19,7 @@ import { AngularFireDatabase, AngularFireDatabaseModule } from 'angularfire2/dat
 import { BorrowedService } from './_services/borrowed.service';
 import { HeaderComponent } from './header/header.component';
 import { BorrowedCardComponent } from './home/borrowed/borrowed-card/borrowed-card.component';
+import { AutofocusDirective } from './header/autofocus.directive';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { BorrowedCardComponent } from './home/borrowed/borrowed-card/borrowed-ca
     BorrowedComponent,
     LoanCardComponent,
     HeaderComponent,
-    BorrowedCardComponent
+    BorrowedCardComponent,
+    AutofocusDirective
   ],
   imports: [
     BrowserModule,

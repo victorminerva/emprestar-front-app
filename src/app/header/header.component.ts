@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { Router } from '@angular/router';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -33,5 +34,9 @@ export class HeaderComponent implements OnInit {
     } else {
       this.showInputSearch = false;
     }
+  }
+
+  setFocusOnSearchInput() {
+
   }
 }
