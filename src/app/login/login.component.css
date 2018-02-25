@@ -20,6 +20,10 @@ body {
   padding: 2em;
 }
 
+button {
+    cursor: pointer;
+}
+
 /* Facebook Button */
 .btn-facebook {
   width: 250px;
