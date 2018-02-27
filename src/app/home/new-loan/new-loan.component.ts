@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class NewLoanComponent implements OnInit {
 
   step = 0;
+  placeholder = '';
 
   things = [
     {value: '0', viewValue: 'Dinheiro'},
@@ -32,6 +33,26 @@ export class NewLoanComponent implements OnInit {
 
   prevStep() {
     this.step--;
+  }
+
+  thingSelected(thing: any) {
+    switch (thing.value) {
+      case '0':
+        this.placeholder = 'Valor';
+        break;
+      case '1':
+        this.placeholder = 'Nome do Jogo';
+        break;
+      case '2':
+        this.placeholder = 'Título do livro';
+        break;
+      case '3':
+        this.placeholder = 'Qual utensílio?';
+        break;
+      case '4':
+        this.placeholder = 'O que?';
+        break;
+    }
   }
 
 }

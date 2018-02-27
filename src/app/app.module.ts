@@ -29,6 +29,7 @@ import { MatExpansionModule, MatAccordion, MatDatepickerModule, MatButtonModule,
   MatInputModule,
   MAT_DATE_LOCALE,
   MatSelectModule} from '@angular/material';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { MatExpansionModule, MatAccordion, MatDatepickerModule, MatButtonModule,
     MatDatepickerModule,
     MatInputModule,
     MatSelectModule,
+    FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,

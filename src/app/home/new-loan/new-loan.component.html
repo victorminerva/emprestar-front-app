@@ -1,7 +1,7 @@
 <nav>
   <span class="title-app">emprestar</span>
 </nav>
-<div class="all">
+<div class="all" align="center">
   <mat-accordion class="example-headers-align">
     <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle="true">
       <mat-expansion-panel-header>
@@ -14,11 +14,22 @@
         </mat-panel-description>
       </mat-expansion-panel-header>
 
-      <mat-action-row>
+      <div >
+        <img src="https://github.com/victorminerva/emprestei/blob/develop/app/src/main/res/drawable-hdpi/image_profile_raster.png?raw=true"
+          height="20%" width="20%" alt="" style="padding-right: 10px;">
+      </div>
+
+      <div class="margin20px" style="border: 1px solid gray;">
+        <input disabled placeholder="Selecione o favorecido" class="input-with-icon">
+        <i class="material-icons" style="font-size: 46px; color: silver; vertical-align: middle; cursor: pointer;">keyboard_arrow_right</i>
+      </div>
+
+
+      <div align="center">
         <button class="circleBtn" (click)="nextStep()">
           <span class="material-icons" style="color: #01926e">arrow_downward</span>
         </button>
-      </mat-action-row>
+      </div>
     </mat-expansion-panel>
 
     <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle="true">
@@ -28,24 +39,33 @@
         </mat-panel-title>
         <mat-panel-description>
           Que tipo de coisa você irá emprestar?
-          <mat-icon>share</mat-icon>
+          <mat-icon>all_inclusive</mat-icon>
         </mat-panel-description>
       </mat-expansion-panel-header>
 
-      <mat-form-field>
-        <mat-select placeholder="Seleciona uma opção">
-          <mat-option *ngFor="let thing of things" [value]="thing.value">
-            {{ thing.viewValue }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+      <div align="center">
+        <mat-form-field class="example-form-field">
+          <mat-select placeholder="Seleciona uma opção">
+            <mat-option *ngFor="let thing of things" [value]="thing.value" (click)="thingSelected(thing)">
+              {{ thing.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
 
+        <mat-form-field class="example-form-field" *ngIf="placeholder===''?false:true">
+          <input matInput type="text" [placeholder]="placeholder" [(ngModel)]="value" />
+          <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
 
-      <mat-action-row>
+      <div align="center">
         <button class="circleBtn" (click)="nextStep()">
           <span class="material-icons" style="color: #01926e">arrow_downward</span>
         </button>
-      </mat-action-row>
+      </div>
+
     </mat-expansion-panel>
 
     <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle="true">
@@ -59,18 +79,20 @@
         </mat-panel-description>
       </mat-expansion-panel-header>
 
-      <mat-form-field class="example-full-width">
-        <input matInput [matDatepicker]="picker" placeholder="Escolha uma data">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker touchUi="true" #picker></mat-datepicker>
-      </mat-form-field>
+      <div align="center">
+        <mat-form-field class="example-form-field">
+          <input matInput [matDatepicker]="picker" placeholder="Escolha uma data">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker touchUi="true" #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
 
-
-      <mat-action-row>
+      <div align="center">
         <button class="circleBtn" (click)="nextStep()">
           <span class="material-icons" style="color: #01926e">check</span>
         </button>
-      </mat-action-row>
+      </div>
+
     </mat-expansion-panel>
 
   </mat-accordion>
