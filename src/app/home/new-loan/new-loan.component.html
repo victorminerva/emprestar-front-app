@@ -1,0 +1,159 @@
+<nav>
+  <span class="title-app">emprestar</span>
+</nav>
+<div class="all">
+  <mat-accordion class="example-headers-align">
+    <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <span class="descriptionTitle">A Quem...?</span>
+        </mat-panel-title>
+        <mat-panel-description>
+          Para qual amigo você vai emprestar?
+          <mat-icon>account_circle</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <mat-action-row>
+        <button class="circleBtn" (click)="nextStep()">
+          <span class="material-icons" style="color: #01926e">arrow_downward</span>
+        </button>
+      </mat-action-row>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <span class="descriptionTitle">O Que...?</span>
+        </mat-panel-title>
+        <mat-panel-description>
+          Que tipo de coisa você irá emprestar?
+          <mat-icon>share</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <mat-form-field>
+        <mat-select placeholder="Seleciona uma opção">
+          <mat-option *ngFor="let thing of things" [value]="thing.value">
+            {{ thing.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+      <mat-action-row>
+        <button class="circleBtn" (click)="nextStep()">
+          <span class="material-icons" style="color: #01926e">arrow_downward</span>
+        </button>
+      </mat-action-row>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <span class="descriptionTitle">Até Quando..?</span>
+        </mat-panel-title>
+        <mat-panel-description>
+          Qual o dia pra ser devolvido?
+          <mat-icon>date_range</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <mat-form-field class="example-full-width">
+        <input matInput [matDatepicker]="picker" placeholder="Escolha uma data">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker touchUi="true" #picker></mat-datepicker>
+      </mat-form-field>
+
+
+      <mat-action-row>
+        <button class="circleBtn" (click)="nextStep()">
+          <span class="material-icons" style="color: #01926e">check</span>
+        </button>
+      </mat-action-row>
+    </mat-expansion-panel>
+
+  </mat-accordion>
+  <!-- <mat-accordion>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <span class="descriptionTitle">A Quem...?</span>
+        </mat-panel-title>
+        <mat-panel-description style="color: gray">
+          Para qual amigo você vai emprestar?
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div align="center">
+        <div class="margin20px">
+          <img src="https://github.com/victorminerva/emprestei/blob/develop/app/src/main/res/drawable-hdpi/image_profile_raster.png?raw=true"
+            height="30%" width="30%" alt="" style="padding-right: 10px;">
+        </div>
+
+        <div class="margin20px" style="border: 1px solid gray;">
+          <input disabled placeholder="Selecione o favorecido" class="input-with-icon">
+          <i class="material-icons" style="font-size: 46px; color: silver; vertical-align: middle; cursor: pointer;">keyboard_arrow_right</i>
+        </div>
+
+        <br>
+        <div class="margin20px">
+          <button class="circleBtn">
+            <span class="material-icons" style="color: #01926e">arrow_downward</span>
+          </button>
+        </div>
+      </div>
+
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <span class="descriptionTitle">O Que...?</span>
+        </mat-panel-title>
+        <mat-panel-description style="color: gray">
+          Que tipo de coisa você irá emprestar?
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <div align="center">
+        <div>
+          <select class="styled-select">
+            <option selected value="0">Seleciona uma opção</option>
+            <option value="1">Dinheiro</option>
+            <option value="2">Jogo</option>
+            <option value="3">Livro</option>
+            <option value="4">Utensilios</option>
+            <option value="5">Outros</option>
+          </select>
+        </div>
+
+        <mat-action-row style="color: silver">
+          <button class="circleBtn">
+            <span class="material-icons" style="color: #01926e">arrow_downward</span>
+          </button>
+        </mat-action-row>
+      </div>
+
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <span class="descriptionTitle">Até Quando..?</span>
+        </mat-panel-title>
+        <mat-panel-description style="color: gray">
+          Informe a data limite do empréstimo.
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <mat-action-row style="color: silver">
+        <button class="circleBtn">
+          <span class="material-icons" style="color: #01926e">check</span>
+        </button>
+      </mat-action-row>
+
+    </mat-expansion-panel>
+
+  </mat-accordion> -->
+</div>

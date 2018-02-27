@@ -1,0 +1,82 @@
+nav {
+  display: block;
+  padding: 10px;
+  margin: 0px 0px 15px 0px;
+  height: 60px;
+}
+
+.all {
+  margin: 20px;
+}
+
+.title-app {
+  font-size: 36px;
+  margin: 10px 15px 15px 10px;
+}
+
+.circleBtn {
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: transparent;
+  border-radius: 50px;
+  text-align: center;
+  border: 1px solid #01926e;
+  cursor: pointer;
+  margin: 0 14px 0 0;
+}
+
+.descriptionTitle {
+  font-family: "Chewy", cursive;
+  font-size: 24px;
+}
+
+.margin20px {
+  margin: 20px 0 20px 0;
+  vertical-align: middle;
+}
+
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid gray;
+  box-sizing: border-box;
+  font-size: 20px;
+  color: gray;
+}
+
+.styled-select {
+  font-family: "GlacialIndifferenceRegular";
+}
+
+select[value="value"] {
+  font-family: "GlacialIndifferenceRegular";
+  font-size: 20px;
+}
+
+.input-with-icon {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  color: gray;
+  vertical-align: middle;
+  cursor: pointer;
+  margin: 0 75px 0 10px;
+}
+
+/* .card:hover {
+    box-shadow: 0 8px 24px 0 #00000033;
+} */
+
+.example-headers-align .mat-expansion-panel-header-title, 
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}

@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 body {
   margin: 0px;
@@ -24,9 +25,6 @@ input {
 .row-card-padding {
   padding: 10px;
 }
-/*.card:hover {
-    box-shadow: 0 8px 16px 0 #00000033;
-}*/
 
 .container {
   padding: 2px 16px;
@@ -84,7 +82,7 @@ input {
   height: 60px;
   bottom: 40px;
   right: 40px;
-  background-color: #0c9;
+  background-color: #01926e;
   color: #fff;
   border-radius: 50px;
   text-align: center;
@@ -199,13 +197,19 @@ input {
   cursor: pointer;
 }
 #button-confirm {
-  background-color: #0c9;
-  border: 1px solid #0c9;
+  background-color: #01926e;
+  border: 1px solid #01926e;
   padding: 10px 25px 10px 25px;
   color: black;
   cursor: pointer;
 }
 .link {
   padding: 5px 10px;
+  cursor: pointer;
+}
+
+.fab {
+  border: 0;
+  background: transparent;
   cursor: pointer;
 }
