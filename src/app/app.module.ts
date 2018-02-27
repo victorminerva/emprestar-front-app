@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
@@ -20,6 +21,14 @@ import { BorrowedService } from './_services/borrowed.service';
 import { HeaderComponent } from './header/header.component';
 import { BorrowedCardComponent } from './home/borrowed/borrowed-card/borrowed-card.component';
 import { AutofocusDirective } from './header/autofocus.directive';
+import { NewLoanComponent } from './home/new-loan/new-loan.component';
+
+import { MatExpansionModule, MatAccordion, MatDatepickerModule, MatButtonModule, MatIconModule,
+  MatFormFieldModule,
+  MatNativeDateModule,
+  MatInputModule,
+  MAT_DATE_LOCALE,
+  MatSelectModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -31,17 +40,29 @@ import { AutofocusDirective } from './header/autofocus.directive';
     LoanCardComponent,
     HeaderComponent,
     BorrowedCardComponent,
+    NewLoanComponent,
     AutofocusDirective
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    MatExpansionModule,
+    MatDatepickerModule,
+    MatButtonModule,
+    MatIconModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatSelectModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [AngularFireDatabase, AuthService,
-              LoansService, BorrowedService],
+              LoansService, BorrowedService,
+              {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
