@@ -28,8 +28,10 @@ import { MatExpansionModule, MatAccordion, MatDatepickerModule, MatButtonModule,
   MatNativeDateModule,
   MatInputModule,
   MAT_DATE_LOCALE,
-  MatSelectModule} from '@angular/material';
+  MatSelectModule,
+  MatSnackBarModule} from '@angular/material';
 import { FormsModule } from '@angular/forms';
+import { FavoredService } from './_services/favored.service';
 
 @NgModule({
   declarations: [
@@ -56,6 +58,7 @@ import { FormsModule } from '@angular/forms';
     MatDatepickerModule,
     MatInputModule,
     MatSelectModule,
+    MatSnackBarModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
@@ -64,6 +67,7 @@ import { FormsModule } from '@angular/forms';
   ],
   providers: [AngularFireDatabase, AuthService,
               LoansService, BorrowedService,
+              FavoredService,
               {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'}],
   bootstrap: [AppComponent]
 })
