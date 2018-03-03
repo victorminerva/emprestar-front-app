@@ -15,6 +15,7 @@ export class AuthService {
   user: Observable<firebase.User>;
 
   constructor(private firebaseAuth: AngularFireAuth, private router: Router) {
+    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
     this.user = firebaseAuth.authState;
   }
 
