@@ -10,6 +10,13 @@ nav {
   width: 50%;
 }
 
+@media (max-width: 900px) {
+  .all {
+    margin: 20px;
+    width: 100%;
+  }
+}
+
 .title-app {
   font-size: 36px;
   margin: 10px 15px 15px 10px;
@@ -42,17 +49,16 @@ nav {
   background-color: transparent;
   border: none;
   font-size: 18px;
-  color: gray;
+  color: black;
   vertical-align: middle;
   cursor: pointer;
-  
 }
 
 /* .card:hover {
     box-shadow: 0 8px 24px 0 #00000033;
 } */
 
-.example-headers-align .mat-expansion-panel-header-title, 
+.example-headers-align .mat-expansion-panel-header-title,
 .example-headers-align .mat-expansion-panel-header-description {
   flex-basis: 0;
 }
@@ -65,4 +71,51 @@ nav {
 .example-form-field {
   width: 50%;
   font-size: 16px;
+}
+
+.input-btn {
+  margin: 20px 150px;
+  background-color: transparent;
+  border: 1px solid #949494;
+  cursor: pointer;
+}
+
+.search-input {
+  font-size: 24px;
+  vertical-align: middle;
+  border: 1px solid gray;
+  margin: 10px;
+  padding: 0 0 0 10px;
+}
+
+.search-input2 {
+  font-size: 18px;
+  vertical-align: middle;
+  border: 0;
+  width: 85%;
+  padding: 10px;
+}
+
+.favored-card {
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.into-card {
+  text-transform: uppercase;
+}
+
+.all-card {
+  padding-bottom: 5px;
+  padding-left: 10px;
+}
+
+#outer-container {
+  position: relative;
+}
+
+.fab {
+  position: relative;
+  background-color: #01926e;
+  margin: 10px;
 }

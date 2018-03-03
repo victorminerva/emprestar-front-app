@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { FavoredService } from '../../_services/favored.service';
+import { Favored } from '../../_models/favored.model';
+import { Observable } from 'rxjs/Observable';
+import { AuthService } from '../../_services/auth.service';
+import { MatSnackBar, MatSnackBarConfig, MatSnackBarRef } from '@angular/material';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-new-loan',
@@ -8,7 +14,10 @@ import { Component, OnInit } from '@angular/core';
 export class NewLoanComponent implements OnInit {
 
   step = 0;
-  placeholder = '';
+  phTitleWhat = '';
+  phNameFavored = '';
+  showListFavoreds: boolean;
+  userFavoreds: Observable<Favored[]>;
 
   things = [
     {value: '0', viewValue: 'Dinheiro'},
@@ -18,9 +27,11 @@ export class NewLoanComponent implements OnInit {
     {value: '4', viewValue: 'Outros'}
   ];
 
-  constructor() { }
+  constructor(private authService: AuthService, private favoredService: FavoredService, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
+    this.showListFavoreds = false;
+    this.phNameFavored = 'Selecione o favorecido';
   }
 
   setStep(index: number) {
@@ -35,24 +46,41 @@ export class NewLoanComponent implements OnInit {
     this.step--;
   }
 
+  confirmLoan() {
+
+  }
+
+  selectFavored() {
+    this.showListFavoreds = true;
+    this.userFavoreds = this.favoredService.retrieveAllUserFavoreds();
+  }
+
+  favoredSelected(favored: Favored) {
+    this.phNameFavored = favored.name;
+    this.showListFavoreds = false;
+  }
+
+  close() {
+    this.showListFavoreds = false;
+  }
+
   thingSelected(thing: any) {
     switch (thing.value) {
       case '0':
-        this.placeholder = 'Valor';
+        this.phTitleWhat = 'Valor';
         break;
       case '1':
-        this.placeholder = 'Nome do Jogo';
+        this.phTitleWhat = 'Nome do Jogo';
         break;
       case '2':
-        this.placeholder = 'Título do livro';
+        this.phTitleWhat = 'Título do livro';
         break;
       case '3':
-        this.placeholder = 'Qual utensílio?';
+        this.phTitleWhat = 'Qual utensílio?';
         break;
       case '4':
-        this.placeholder = 'O que?';
+        this.phTitleWhat = 'O que?';
         break;
     }
   }
-
 }
