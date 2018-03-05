@@ -1,4 +1,4 @@
-export interface Favored {
+export class Favored {
     uid: string;
     name: string;
     email: string;
