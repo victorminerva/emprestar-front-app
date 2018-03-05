@@ -20,7 +20,7 @@
       </div>
 
       <button class="input-btn" (click)="selectFavored()">
-        <input disabled [placeholder]="[phNameFavored]" class="input-with-icon" required>
+        <input disabled [placeholder]="[favored.name]" class="input-with-icon" required>
         <i class="material-icons" style="font-size: 46px; color: silver; vertical-align: middle; cursor: pointer;">keyboard_arrow_right</i>
       </button>
 
@@ -53,8 +53,8 @@
         </mat-form-field>
 
         <mat-form-field class="example-form-field" *ngIf="phTitleWhat===''?false:true">
-          <input matInput type="text" [placeholder]="phTitleWhat" [(ngModel)]="value" />
-          <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+          <input matInput type="text" [placeholder]="phTitleWhat" [(ngModel)]="whatDesc" />
+          <button mat-button *ngIf="whatDesc" matSuffix mat-icon-button aria-label="Clear" (click)="whatDesc=''">
             <mat-icon>close</mat-icon>
           </button>
         </mat-form-field>
@@ -74,14 +74,14 @@
           <span class="descriptionTitle">Até Quando..?</span>
         </mat-panel-title>
         <mat-panel-description>
-          Qual o dia pra ser devolvido?
+          Qual o dia será devolvido?
           <mat-icon>date_range</mat-icon>
         </mat-panel-description>
       </mat-expansion-panel-header>
 
       <div align="center">
         <mat-form-field class="example-form-field">
-          <input matInput [matDatepicker]="picker" placeholder="Escolha uma data">
+          <input matInput [matDatepicker]="picker" placeholder="Escolha uma data" [(ngModel)]="untilWhen">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker touchUi="true" #picker></mat-datepicker>
         </mat-form-field>
@@ -130,7 +130,7 @@
           </div>
         </div>
       </div>
-      
+
       <div align="bottom">
         <div align="right">
           <button mat-fab class="fab">
