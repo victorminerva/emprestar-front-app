@@ -3,7 +3,7 @@
 
 body {
   margin: 0px;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 span,
@@ -213,4 +213,11 @@ input {
   border: 0;
   background: transparent;
   cursor: pointer;
+}
+
+.content-div {
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 5px;
+  height: 80vh;
 }
