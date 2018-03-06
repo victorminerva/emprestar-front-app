@@ -2,15 +2,19 @@
     <p>
         Empréstimos
     </p>
-    <div *ngFor="let loan of userLoans | async">
-        <app-loan-card [loan]="loan"></app-loan-card>
+    <div class="content-div">
+        <div *ngFor="let loan of userLoans | async">
+            <app-loan-card [loan]="loan"></app-loan-card>
+        </div>
     </div>
 </div>
 <div class="column card">
     <p>
         Recentes
     </p>
-    <div *ngFor="let loanRecents of userLoansRecents | async">
-        <app-loan-card [loan]="loanRecents"></app-loan-card>
+    <div class="content-div">
+        <div *ngFor="let loanRecents of userLoansRecents | async">
+            <app-loan-card [loan]="loanRecents"></app-loan-card>
+        </div>
     </div>
 </div>
